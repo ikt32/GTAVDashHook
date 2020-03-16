@@ -85,6 +85,9 @@
     <PostBuildEvent>
       <Command>PostBuild.bat $(ProjectName)</Command>
     </PostBuildEvent>
+    <ResourceCompile>
+      <PreprocessorDefinitions>DASHHOOK_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ResourceCompile>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="DashHook.cpp" />
@@ -99,6 +102,9 @@
     <ClInclude Include="Logger.hpp" />
     <ClInclude Include="Main.h" />
     <ClInclude Include="Pattern.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="DashHook.rc" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

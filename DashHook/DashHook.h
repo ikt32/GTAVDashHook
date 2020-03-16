@@ -1,7 +1,17 @@
-#pragma once
+#ifndef DASHHOOK_H
+#define DASHHOOK_H
 
 #ifdef DASHHOOK_EXPORTS
 #define DASHHOOK_API extern "C" __declspec(dllexport)
+
+#define STR_HELPER(x) #x
+#define STR(x) STR_HELPER(x)
+
+#define VER_MAJOR 1
+#define VER_MINOR 0
+#define VER_PATCH 0
+
+#define DASHHOOK_VER STR(VER_MAJOR) "."  STR(VER_MINOR) "." STR(VER_PATCH)
 #else
 #ifndef DASHHOOK_RUNTIME
 #define DASHHOOK_API extern "C" __declspec(dllimport)
@@ -53,3 +63,5 @@ DASHHOOK_API VehicleDashboardData DashHook_GetDataCurrent();
  * \param[in] data The dashboard data.
  */
 DASHHOOK_API void DashHook_SetData(VehicleDashboardData data);
+
+#endif

@@ -46,4 +46,7 @@
       <Filter>Utils</Filter>
     </ClInclude>
   </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="DashHook.rc" />
+  </ItemGroup>
 </Project>
