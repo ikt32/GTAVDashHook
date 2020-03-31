@@ -50,13 +50,13 @@ struct VehicleDashboardData
  * \brief   Get the original unmodified dashboard data.
  * \return  A copy of the data.
  */
-DASHHOOK_API VehicleDashboardData DashHook_GetDataOriginal();
+DASHHOOK_API void DashHook_GetDataOriginal(VehicleDashboardData* data);
 
 /**
  * \brief   Get the currentdashboard data with changes from the last time DashHook_SetData was called.
  * \return A copy of the data.
  */
-DASHHOOK_API VehicleDashboardData DashHook_GetDataCurrent();
+DASHHOOK_API void DashHook_GetDataCurrent(VehicleDashboardData* data);
 
 /**
  * \brief   Set the dashboard data to be shown next tick.

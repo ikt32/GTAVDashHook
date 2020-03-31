@@ -21,14 +21,15 @@ bool g_UseCustomDashData;
 VehicleDashboardData g_OrigDashData;
 VehicleDashboardData g_CustomDashData{};
 
-VehicleDashboardData DashHook_GetDataOriginal() {
-    return g_OrigDashData;
+void DashHook_GetDataOriginal(VehicleDashboardData* data) {
+    *data = g_OrigDashData;
 }
 
-VehicleDashboardData DashHook_GetDataCurrent() {
+void DashHook_GetDataCurrent(VehicleDashboardData* data) {
     if (g_UseCustomDashData)
-        return g_CustomDashData;
-    return g_OrigDashData;
+        *data = g_CustomDashData;
+    else
+        *data = g_OrigDashData;
 }
 
 void DashHook_SetData(VehicleDashboardData data) {
@@ -39,7 +40,7 @@ void DashHook_SetData(VehicleDashboardData data) {
             WCHAR sz[MAX_PATH];
             if (GetModuleFileName(hmod, sz, MAX_PATH))
             {
-                logger.Write(LogLevel::INFO, "[%p] %S\n", hmod, sz);
+                logger.Write(LogLevel::INFO, "[%p] %S", hmod, sz);
             }
             g_UserHandles.push_back(hmod);
         }
