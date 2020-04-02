@@ -97,6 +97,7 @@
     <ClCompile Include="Pattern.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="DashHook-Extended.h" />
     <ClInclude Include="DashHook.h" />
     <ClInclude Include="Hooking.h" />
     <ClInclude Include="Logger.hpp" />

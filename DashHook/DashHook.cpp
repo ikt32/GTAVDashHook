@@ -25,7 +25,7 @@ void DashHook_GetDataOriginal(VehicleDashboardData* data) {
     *data = g_OrigDashData;
 }
 
-void DashHook_GetDataCurrent(VehicleDashboardData* data) {
+void DashHook_GetData(VehicleDashboardData* data) {
     if (g_UseCustomDashData)
         *data = g_CustomDashData;
     else

@@ -45,18 +45,11 @@ struct VehicleDashboardData
     bool batteryLight; // 0x6C
 };
 
-
 /**
- * \brief   Get the original unmodified dashboard data.
- * \return  A copy of the data.
+ * \brief               Get the current dashboard data.
+ * \param data [out]    A pointer to a VehicleDashboardData struct.
  */
-DASHHOOK_API void DashHook_GetDataOriginal(VehicleDashboardData* data);
-
-/**
- * \brief   Get the currentdashboard data with changes from the last time DashHook_SetData was called.
- * \return A copy of the data.
- */
-DASHHOOK_API void DashHook_GetDataCurrent(VehicleDashboardData* data);
+DASHHOOK_API void DashHook_GetData(VehicleDashboardData* data);
 
 /**
  * \brief   Set the dashboard data to be shown next tick.

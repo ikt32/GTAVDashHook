@@ -45,6 +45,9 @@
     <ClInclude Include="Pattern.h">
       <Filter>Utils</Filter>
     </ClInclude>
+    <ClInclude Include="DashHook-Extended.h">
+      <Filter>API</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="DashHook.rc" />
