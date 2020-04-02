@@ -89,6 +89,7 @@ void setupHooks() {
 
 void removeHooks() {
     if (g_VehicleDashboardHandlerHook) {
+        g_VehicleDashboardHandlerHook->remove();
         delete g_VehicleDashboardHandlerHook;
         g_VehicleDashboardHandlerHook = nullptr;
     }
