@@ -1,4 +1,4 @@
-#include "DashHook.h"
+#include "DashHook-Extended.h"
 
 #include "Logger.hpp"
 #include "Pattern.h"
