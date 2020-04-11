@@ -49,30 +49,19 @@ void DashHook_SetData(VehicleDashboardData data) {
     g_CustomDashData = data;
 }
 
-VehicleDashboardData applyDelta(VehicleDashboardData current,
-    VehicleDashboardData prev,
-    VehicleDashboardData prevMod) {
-
-    for (uint32_t offset = 0; offset < sizeof(VehicleDashboardData); ++offset) {
-        uint8_t prevByte = *(reinterpret_cast<uint8_t*>(&prev) + offset);
-        uint8_t prevModByte = *(reinterpret_cast<uint8_t*>(&prevMod) + offset);
-        if (prevByte != prevModByte)
-            *(reinterpret_cast<uint8_t*>(&current) + offset) = prevModByte;
-    }
-    return current;
-}
-
 void DashboardHandler(void* modelInfo, VehicleDashboardData* data) {
     VehicleDashboardData lastDashData = g_OrigDashData;
     if (data) {
         g_OrigDashData = *data;
-    }
-    if (g_UseCustomDashData) {
-        auto delta = applyDelta(g_OrigDashData, lastDashData, g_CustomDashData);
-        g_VehicleDashboardHandlerHook->fn(modelInfo, &delta);
-    }
-    else {
-        g_VehicleDashboardHandlerHook->fn(modelInfo, data);
+
+        if (g_UseCustomDashData) {
+            g_VehicleDashboardHandlerHook->fn(modelInfo, &g_CustomDashData);
+        }
+        else {
+            g_VehicleDashboardHandlerHook->fn(modelInfo, data);
+        }
+
+        g_CustomDashData = *data;
     }
     g_UseCustomDashData = false;
 }
