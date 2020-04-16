@@ -50,7 +50,6 @@ void DashHook_SetData(VehicleDashboardData data) {
 }
 
 void DashboardHandler(void* modelInfo, VehicleDashboardData* data) {
-    VehicleDashboardData lastDashData = g_OrigDashData;
     if (data) {
         g_OrigDashData = *data;
 

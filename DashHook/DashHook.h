@@ -8,8 +8,8 @@
 #define STR(x) STR_HELPER(x)
 
 #define VER_MAJOR 1
-#define VER_MINOR 1
-#define VER_PATCH 0
+#define VER_MINOR 0
+#define VER_PATCH 1
 
 #define DASHHOOK_VER STR(VER_MAJOR) "."  STR(VER_MINOR) "." STR(VER_PATCH)
 #else
